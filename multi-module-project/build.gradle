@@ -1,0 +1,145 @@
+allprojects {
+    //Put instructions for all projects
+}
+
+subprojects {
+    //Put instructions for each sub project
+    apply plugin: "java-library"
+    apply plugin: "java"
+    repositories {
+        mavenCentral()
+    }
+}
+
+// ========================== Module 1 ========================== //
+//Common Module1 stuff
+project(':module1:common') {
+    dependencies {
+    }
+}
+
+//Spec Module1 stuff
+project(':module1:spec') {
+    dependencies {
+    }
+}
+
+//API Module1 stuff
+project(':module1:api') {
+    dependencies {
+        implementation project(':module1:common')
+        api project(':module1:spec')
+    }
+}
+
+//App Module1 stuff
+project(':module1:app') {
+    dependencies {
+        implementation project(':module1:common')
+        api project(':module1:api')
+    }
+}
+
+// ========================== Module 2 ========================== //
+//Common Module2 stuff
+project(':module2:common') {
+    dependencies {
+    }
+}
+
+//API Module2 stuff
+project(':module2:api') {
+    dependencies {
+        implementation project(':module2:common')
+    }
+}
+
+//App Module2 stuff
+project(':module2:app') {
+    dependencies {
+        implementation project(':module2:common')
+        api project(':module2:api')
+
+        implementation (project(':module1:app')) {
+            because 'MySecondPublicAPIImpl needs to extends the MyPublicAPIImpl, but I can not access UtilityCode'
+        }
+    }
+}
+
+// ========================== Module 3 ========================== //
+//Common Module2 stuff
+project(':module3:common') {
+    dependencies {
+    }
+}
+
+//API Module3 stuff
+project(':module2:api') {
+    dependencies {
+        implementation project(':module3:common')
+    }
+}
+
+//App Module2 stuff
+project(':module3:app') {
+    dependencies {
+        implementation project(':module3:common')
+        api project(':module3:api')
+
+        implementation (project(':module1:common')) {
+            because 'SomeCode needs to use UtilityCode, but I can not access MyPublicAPI nor MyPublicAPIImpl'
+        }
+    }
+}
+
+// ========================== Module 4 ========================== //
+//Common Module4 stuff
+project(':module4:common') {
+    dependencies {
+    }
+}
+
+//API Module4 stuff
+project(':module4:api') {
+    dependencies {
+        implementation project(':module4:common')
+    }
+}
+
+//App Module4 stuff
+project(':module4:app') {
+    dependencies {
+        implementation project(':module4:common')
+        api project(':module4:api')
+
+        implementation (project(':module1:api')) {
+            because 'PublicAPIConsumer needs to use MyPublicAPI and MyPojo, but I can not access UtilityCode, MyPublicAPI nor MyPublicAPIImpl'
+        }
+    }
+}
+
+// ========================== Module 5 ========================== //
+//Common Module5 stuff
+project(':module5:common') {
+    dependencies {
+    }
+}
+
+//API Module5 stuff
+project(':module5:api') {
+    dependencies {
+        implementation project(':module5:common')
+    }
+}
+
+//App Module5 stuff
+project(':module5:app') {
+    dependencies {
+        implementation project(':module5:common')
+        api project(':module5:api')
+
+        runtimeOnly (project(':module1:api')) {
+            because 'PojoUser needs to use MyPojo by reflection'
+        }
+    }
+}

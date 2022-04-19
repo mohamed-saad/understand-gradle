@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/module1" />
+            <option value="$PROJECT_DIR$/module1/api" />
+            <option value="$PROJECT_DIR$/module1/app" />
+            <option value="$PROJECT_DIR$/module1/common" />
+            <option value="$PROJECT_DIR$/module1/spec" />
+            <option value="$PROJECT_DIR$/module2" />
+            <option value="$PROJECT_DIR$/module2/api" />
+            <option value="$PROJECT_DIR$/module2/app" />
+            <option value="$PROJECT_DIR$/module2/common" />
+            <option value="$PROJECT_DIR$/module3" />
+            <option value="$PROJECT_DIR$/module3/api" />
+            <option value="$PROJECT_DIR$/module3/app" />
+            <option value="$PROJECT_DIR$/module3/common" />
+            <option value="$PROJECT_DIR$/module4" />
+            <option value="$PROJECT_DIR$/module4/api" />
+            <option value="$PROJECT_DIR$/module4/app" />
+            <option value="$PROJECT_DIR$/module4/common" />
+            <option value="$PROJECT_DIR$/module5" />
+            <option value="$PROJECT_DIR$/module5/api" />
+            <option value="$PROJECT_DIR$/module5/app" />
+            <option value="$PROJECT_DIR$/module5/common" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
