@@ -1,5 +1,5 @@
 
-public class MySecondPublicAPIImpl extends MyPublicAPIImpl {
+public class MyExtendedPublicAPIImpl extends MyPublicAPIImpl {
 
     @Override
     protected void someCustomCode() {

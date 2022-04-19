@@ -2,15 +2,23 @@ include ":module-1:spec"
 include ":module-1:api"
 include ":module-1:common"
 include ":module-1:impl"
+
+include ":module-2:spec"
 include ":module-2:api"
 include ":module-2:common"
 include ":module-2:impl"
+
+include ":module-3:spec"
 include ":module-3:api"
 include ":module-3:common"
 include ":module-3:impl"
+
+include ":module-4:spec"
 include ":module-4:api"
 include ":module-4:common"
 include ":module-4:impl"
+
+include ":module-5:spec"
 include ":module-5:api"
 include ":module-5:common"
 include ":module-5:impl"

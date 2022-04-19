@@ -18,18 +18,22 @@
             <option value="$PROJECT_DIR$/module-2/api" />
             <option value="$PROJECT_DIR$/module-2/common" />
             <option value="$PROJECT_DIR$/module-2/impl" />
+            <option value="$PROJECT_DIR$/module-2/spec" />
             <option value="$PROJECT_DIR$/module-3" />
             <option value="$PROJECT_DIR$/module-3/api" />
             <option value="$PROJECT_DIR$/module-3/common" />
             <option value="$PROJECT_DIR$/module-3/impl" />
+            <option value="$PROJECT_DIR$/module-3/spec" />
             <option value="$PROJECT_DIR$/module-4" />
             <option value="$PROJECT_DIR$/module-4/api" />
             <option value="$PROJECT_DIR$/module-4/common" />
             <option value="$PROJECT_DIR$/module-4/impl" />
+            <option value="$PROJECT_DIR$/module-4/spec" />
             <option value="$PROJECT_DIR$/module-5" />
             <option value="$PROJECT_DIR$/module-5/api" />
             <option value="$PROJECT_DIR$/module-5/common" />
             <option value="$PROJECT_DIR$/module-5/impl" />
+            <option value="$PROJECT_DIR$/module-5/spec" />
           </set>
         </option>
       </GradleProjectSettings>

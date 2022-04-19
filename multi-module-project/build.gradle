@@ -13,16 +13,12 @@ subprojects {
 // ========================== module- 1 ========================== //
 //Common module-1 stuff
 project(':module-1:common') {
-    dependencies {
-    }
+    dependencies { /* no dependency */ }
 }
-
 //Spec module-1 stuff
 project(':module-1:spec') {
-    dependencies {
-    }
+    dependencies { /* no dependency */ }
 }
-
 //API module-1 stuff
 project(':module-1:api') {
     dependencies {
@@ -30,8 +26,7 @@ project(':module-1:api') {
         api project(':module-1:spec')
     }
 }
-
-//App module-1 stuff
+//Implementation module-1 stuff
 project(':module-1:impl') {
     dependencies {
         implementation project(':module-1:common')
@@ -42,18 +37,20 @@ project(':module-1:impl') {
 // ========================== module- 2 ========================== //
 //Common module-2 stuff
 project(':module-2:common') {
-    dependencies {
-    }
+    dependencies { /* no dependency */ }
 }
-
+//Spec module-2 stuff
+project(':module-2:spec') {
+    dependencies { /* no dependency */ }
+}
 //API module-2 stuff
 project(':module-2:api') {
     dependencies {
         implementation project(':module-2:common')
+        api project(':module-2:spec')
     }
 }
-
-//App module-2 stuff
+//Implementation module-2 stuff
 project(':module-2:impl') {
     dependencies {
         implementation project(':module-2:common')
@@ -68,18 +65,20 @@ project(':module-2:impl') {
 // ========================== module- 3 ========================== //
 //Common module-2 stuff
 project(':module-3:common') {
-    dependencies {
-    }
+    dependencies { /* no dependency */ }
 }
-
+//Spec module-3 stuff
+project(':module-3:spec') {
+    dependencies { /* no dependency */ }
+}
 //API module-3 stuff
-project(':module-2:api') {
+project(':module-3:api') {
     dependencies {
         implementation project(':module-3:common')
+        api project(':module-3:spec')
     }
 }
-
-//App module-2 stuff
+//Implementation module-2 stuff
 project(':module-3:impl') {
     dependencies {
         implementation project(':module-3:common')
@@ -94,25 +93,27 @@ project(':module-3:impl') {
 // ========================== module- 4 ========================== //
 //Common module-4 stuff
 project(':module-4:common') {
-    dependencies {
-    }
+    dependencies { /* no dependency */ }
 }
-
+//Spec module-4 stuff
+project(':module-4:spec') {
+    dependencies { /* no dependency */ }
+}
 //API module-4 stuff
 project(':module-4:api') {
     dependencies {
         implementation project(':module-4:common')
+        api project(':module-4:spec')
     }
 }
-
-//App module-4 stuff
+//Implementation module-4 stuff
 project(':module-4:impl') {
     dependencies {
         implementation project(':module-4:common')
         api project(':module-4:api')
 
         implementation (project(':module-1:api')) {
-            because 'PublicAPIConsumer needs to use MyPublicAPI and MyPojo, but I can not access UtilityCode, MyPublicAPI nor MyPublicAPIImpl'
+            because 'DifferentPublicAPIImpl needs to use MyPublicAPI and MyPojo, but I can not access UtilityCode, MyPublicAPIImpl'
         }
     }
 }
@@ -120,25 +121,30 @@ project(':module-4:impl') {
 // ========================== module- 5 ========================== //
 //Common module-5 stuff
 project(':module-5:common') {
-    dependencies {
-    }
+    dependencies { /* no dependency */ }
 }
-
+//Spec module-5 stuff
+project(':module-5:spec') {
+    dependencies { /* no dependency */ }
+}
 //API module-5 stuff
 project(':module-5:api') {
     dependencies {
         implementation project(':module-5:common')
+        api project(':module-5:spec')
     }
 }
-
-//App module-5 stuff
+//Implementation module-5 stuff
 project(':module-5:impl') {
     dependencies {
         implementation project(':module-5:common')
         api project(':module-5:api')
 
+        implementation (project(':module-1:impl')) {
+            because 'APIConsumer needs to use MyPublicAPIImpl by reflection'
+        }
         runtimeOnly (project(':module-1:api')) {
-            because 'PojoUser needs to use MyPojo by reflection'
+            because 'APIConsumer needs to use PublicAPIImpl'
         }
     }
 }

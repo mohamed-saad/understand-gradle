@@ -1,9 +1,8 @@
-public class PojoUser {
+public class APIConsumer {
 
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        System.out.println(Class.forName("MyPojo").newInstance());
-
-//      new MyPojo();                   // I can't this code here
+        MyPublicAPI var = (MyPublicAPI)Class.forName("MyPublicAPIImpl").newInstance();
+        System.out.println(var);
 
 //        UtilityCode.doSomeUtility();    // I can't this code here
 
